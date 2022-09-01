@@ -1,0 +1,196 @@
+body {
+    background-color: #FFFDD7;
+}
+
+h1 {
+    background-color: yellow;
+}
+
+.title {
+    text-align: center;
+    font-size: 44px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.subtext {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0px;
+}
+
+#instructions {
+    font-size: 30px;
+}
+
+.timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#timeWord {
+    margin-right: 10px;
+}
+
+#timeWord, #minutes, #seconds, #colon {
+    font-size: 28px;
+}
+
+#numMoves {
+    font-size: 28px;
+}
+
+.cube{
+    margin-left: 42%;
+}
+
+.urow1, .urow2, .urow3{
+    display: flex;
+}
+
+.usquare {
+    width: 45px;
+	height: 45px;
+    border: 1px solid black;   
+}
+
+#t1 {
+    transform: rotate(-45deg) skew(15deg, 15deg) translate(-0px, 113px);
+}
+#t2 {
+    transform: rotate(-45deg) skew(15deg, 15deg) translate(-26.5px, 133px);
+}
+#t3 {
+    transform: rotate(-45deg) skew(15deg, 15deg) translate(-52.5px, 153.5px);
+}
+#t4 {
+    transform: rotate(-45deg) skew(15deg, 15deg) translate(-0.5px, 67.5px);
+}
+#t5 {
+    transform: rotate(-45deg) skew(15deg, 15deg) translate(-27px, 88px);
+}
+#t6 {
+    transform: rotate(-45deg) skew(15deg, 15deg) translate(-53px, 108.5px);
+}
+#t7 {
+    transform: rotate(-45deg) skew(15deg, 15deg) translate(-1px, 22px);
+}
+#t8 {
+    transform: rotate(-45deg) skew(15deg, 15deg) translate(-27.5px, 42.5px);
+}
+#t9 {
+    transform: rotate(-45deg) skew(15deg, 15deg) translate(-54px, 63px);
+}
+
+.frow1 {
+    display: flex;
+}
+
+.fsquare {
+    width: 40px;
+	height: 50px;
+    border: 1px solid black;   
+}
+
+#f1, #f4, #f7 {
+    transform: skewY(30deg);
+}
+#f2, #f5, #f8 {
+    transform: skewY(30deg) translate(0, 24px);
+}
+#f3, #f6, #f9 {
+    transform: skewY(30deg) translate(0, 48px);
+}
+
+#r1, #r4, #r7 {
+    transform: skewY(-30deg) translate(0, 48px);
+}
+#r2, #r5, #r8 {
+    transform: skewY(-30deg) translate(0, 24px);
+}
+#r3, #r6, #r9 {
+    transform: skewY(-30deg) translate(-2px, 0px);
+}
+
+.scramble {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 100px;
+}
+.scramble_button {
+    font-size: 24px;
+    background-color: #EEE;
+    border-radius: 10%;
+}
+.scramble_button:active {
+    background-color: #777;
+}
+.reset_button {
+    font-size: 24px;
+    margin-left: 20px;
+    background-color: #EEE;
+    border-radius: 10%;
+}
+.reset_button:active {
+    background-color: #777;
+}
+.undo_button {
+    font-size: 24px;
+    margin-left: 20px;
+    background-color: #EEE;
+    border-radius: 10%;
+}
+.undo_button:active {
+    background-color: #777;
+}
+
+.moves {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.wideMoves {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.move {
+    margin-left: 20px;
+    font-size: 24px;
+    background-color: #EEE;
+    border-radius: 15%;
+}
+.move:active, .button-active {
+    background-color: #777;
+}
+.wideMove {
+    width: 35px;
+    margin-left: 25px;
+    font-size: 24px;
+    background-color: #EEE;
+    border-radius: 15%;
+}
+.wideMove:active, .button-active {
+    background-color: #777;
+}
+
+#primeButton {
+    background-color: #EEE;
+    margin-left: 60px;
+    width: 30px;
+    text-align: center;
+}
+
+#wideButton {
+    background-color: #EEE;
+    margin-left: 60px;
+    width: 40px;
+    text-align: center;
+}

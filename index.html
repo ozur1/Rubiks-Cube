@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Ori's Rubik's Cube</title>
+</head>
+<body>
+    <h1 class="title">Rubik's Cube Online</h1>
+
+    <h2 class="subtext" id="instructions">Hit Scramble to Start</h2>
+
+    <div class="timer">
+        <span id="timeWord">Time:</span><span id="minutes">00</span><span id="colon">:</span><span id="seconds">00</span>
+    </div>
+
+    <p class="subtext" id="numMoves">Number of Moves: 0</p>
+
+    <div class="cube">
+        <div class="topface" >
+            <div class="urow3">
+                <div class="usquare" id="t1"></div>
+                <div class="usquare" id="t2"></div>
+                <div class="usquare" id="t3"></div>
+            </div>
+            <div class="urow2">
+                <div class="usquare" id="t4"></div>
+                <div class="usquare" id="t5"></div>
+                <div class="usquare" id="t6"></div>
+            </div>
+            <div class="urow1">
+                <div class="usquare" id="t7"></div>
+                <div class="usquare" id="t8"></div>
+                <div class="usquare" id="t9"></div>
+            </div>
+        </div>
+        <div class="frontface">
+            <div class="frow1">
+                <div class="fsquare" id="f1"></div>
+                <div class="fsquare" id="f2"></div>
+                <div class="fsquare" id="f3"></div>
+                <div class="fsquare" id="r1"></div>
+                <div class="fsquare" id="r2"></div>
+                <div class="fsquare" id="r3"></div>
+            </div>
+            <div class="frow1">
+                <div class="fsquare" id="f4"></div>
+                <div class="fsquare" id="f5"></div>
+                <div class="fsquare" id="f6"></div>
+                <div class="fsquare" id="r4"></div>
+                <div class="fsquare" id="r5"></div>
+                <div class="fsquare" id="r6"></div>
+            </div>
+            <div class="frow1">
+                <div class="fsquare" id="f7"></div>
+                <div class="fsquare" id="f8"></div>
+                <div class="fsquare" id="f9"></div>
+                <div class="fsquare" id="r7"></div>
+                <div class="fsquare" id="r8"></div>
+                <div class="fsquare" id="r9"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="scramble">
+        <button class="scramble_button" onclick="scrambleCube()">Scramble</button>
+        <button class="reset_button" onclick="resetCube()">Reset</button>
+        <button class="undo_button" id="undo" onclick="undoMove()">Undo (Q)</button>
+    </div>
+
+    <div class="moves">
+        <button class="move" id="uMove" onclick="uTurn()">U</button>
+        <button class="move" id="uPrimeMove" onclick="uPrimeTurn()">U'</button>
+        <button class="move" id="dMove" onclick="dTurn()">D</button>
+        <button class="move" id="dPrimeMove" onclick="dPrimeTurn()">D'</button>
+        <button class="move" id="rMove" onclick="rTurn()">R</button>
+        <button class="move" id="rPrimeMove" onclick="rPrimeTurn()">R'</button>
+        <button class="move" id="lMove" onclick="lTurn()">L</button>
+        <button class="move" id="lPrimeMove" onclick="lPrimeTurn()">L'</button>
+        <button class="move" id="fMove" onclick="fTurn()">F</button>
+        <button class="move" id="fPrimeMove" onclick="fPrimeTurn()">F'</button>
+        <button class="move" id="bMove" onclick="bTurn()">B</button>
+        <button class="move" id="bPrimeMove" onclick="bPrimeTurn()">B'</button>
+        <button class="move" id="primeButton" onclick="togglePrime()">'</button>
+    </div>
+    <div class="wideMoves">
+        <button class="wideMove" id="uWideMove" onclick="uWideTurn()">u</button>
+        <button class="wideMove" id="uWidePrimeMove" onclick="uWidePrimeTurn()">u'</button>
+        <button class="wideMove" id="dWideMove" onclick="dWideTurn()">d</button>
+        <button class="wideMove" id="dWidePrimeMove" onclick="dWidePrimeTurn()">d'</button>
+        <button class="wideMove" id="rWideMove" onclick="rWideTurn()">r</button>
+        <button class="wideMove" id="rWidePrimeMove" onclick="rWidePrimeTurn()">r'</button>
+        <button class="wideMove" id="lWideMove" onclick="lWideTurn()">l</button>
+        <button class="wideMove" id="lWidePrimeMove" onclick="lWidePrimeTurn()">l'</button>
+        <button class="wideMove" id="fWideMove" onclick="fWideTurn()">f</button>
+        <button class="wideMove" id="fWidePrimeMove" onclick="fWidePrimeTurn()">f'</button>
+        <button class="wideMove" id="bWideMove" onclick="bWideTurn()">b</button>
+        <button class="wideMove" id="bWidePrimeMove" onclick="bWidePrimeTurn()">b'</button>
+        <button class="wideMove" id="wideButton" onclick="toggleWide()">w</button>
+    </div>
+    <div class="moves">
+        <button class="move" id="mMove" onclick="mTurn()">M</button>
+        <button class="move" id="mPrimeMove" onclick="mPrimeTurn()">M'</button>
+        <button class="move" id="sMove" onclick="sTurn()">S</button>
+        <button class="move" id="sPrimeMove" onclick="sPrimeTurn()">S'</button>
+        <button class="move" id="eMove" onclick="eTurn()">E</button>
+        <button class="move" id="ePrimeMove" onclick="ePrimeTurn()">E'</button>
+        <button class="move" id="xMove" onclick="xTurn()">x</button>
+        <button class="move" id="xPrimeMove" onclick="xPrimeTurn()">x'</button>
+        <button class="move" id="yMove" onclick="yTurn()">y</button>
+        <button class="move" id="yPrimeMove" onclick="yPrimeTurn()">y'</button>
+        <button class="move" id="zMove" onclick="zTurn()">z</button>
+        <button class="move" id="zPrimeMove" onclick="zPrimeTurn()">z'</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
