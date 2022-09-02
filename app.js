@@ -600,7 +600,7 @@ function scrambleCube() {
 function checkFace(i, j) {
     return (cubies[i][j] == cubies[i][j+1] && cubies[i][j] == cubies[i][j+2] &&
         cubies[i][j] == cubies[i+1][j] && cubies[i][j] == cubies[i+1][j+1] &&
-        cubies[i][j] == cubies[1+1][j+2] && cubies[i][j] == cubies[i+2][j] &&
+        cubies[i][j] == cubies[i+1][j+2] && cubies[i][j] == cubies[i+2][j] &&
         cubies[i][j] == cubies[i+2][j+1] && cubies[i][j] == cubies[i+2][j+2]);
 }
 function isFaceSolved(face) {
