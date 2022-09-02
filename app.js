@@ -62,17 +62,20 @@ let numMoves = 0
 function updateNumMoves() {
     if (solving) {
         numMoves += 1;
-        document.getElementById("numMoves").innerHTML = "Number of Moves: " + String(numMoves);
+        renderNumMoves(numMoves);
     }
 }
 function undoNumMoves(n) {
     if (solving) {
         numMoves -= n;
-        document.getElementById("numMoves").innerHTML = "Number of Moves: " + String(numMoves);
+        renderNumMoves(numMoves);
     }
 }
 function resetNumMoves() {
     numMoves = 0;
+    renderNumMoves(numMoves);
+}
+function renderNumMoves(numMoves) {
     document.getElementById("numMoves").innerHTML = "Number of Moves: " + String(numMoves);
 }
 
@@ -389,174 +392,51 @@ function bWidePrimeTurn() {
 }
 
 // KEYBOARD CONTROLS
+function keyPressed(moveIds) {
+    let ind = -1
+    if (prime && wide) {ind = 3;}
+    else if (wide && !prime) {ind = 2;}
+    else if (prime && !wide) {ind = 1;}
+    else {ind = 0;}
+    document.getElementById(moveIds[ind]).click();
+    document.getElementById(moveIds[ind]).classList.add("button-active");
+}
 window.addEventListener("keydown", function(event) {
     if (event.key == "u") {
-        if (prime && wide) {
-            document.getElementById('uWidePrimeMove').click();
-            document.getElementById('uWidePrimeMove').classList.add("button-active");
-        }
-        else if (wide && !prime) {
-            document.getElementById('uWideMove').click();
-            document.getElementById('uWideMove').classList.add("button-active");
-        }
-        else if (prime && !wide) {
-            document.getElementById('uPrimeMove').click();
-            document.getElementById('uPrimeMove').classList.add("button-active");
-        }
-        else {
-            document.getElementById('uMove').click();
-            document.getElementById('uMove').classList.add("button-active");
-        }
+        keyPressed(['uMove', 'uPrimeMove', 'uWideMove', 'uWidePrimeMove']);
     }
     else if (event.key == "d") {
-        if (prime && wide) {
-            document.getElementById('dWidePrimeMove').click();
-            document.getElementById('dWidePrimeMove').classList.add("button-active");
-        }
-        else if (wide && !prime) {
-            document.getElementById('dWideMove').click();
-            document.getElementById('dWideMove').classList.add("button-active");
-        }
-        else if (prime && !wide) {
-            document.getElementById('dPrimeMove').click();
-            document.getElementById('dPrimeMove').classList.add("button-active");
-        }
-        else {
-            document.getElementById('dMove').click();
-            document.getElementById('dMove').classList.add("button-active");
-        }
+        keyPressed(['dMove', 'dPrimeMove', 'dWideMove', 'dWidePrimeMove']);
     }
     else if (event.key == "r") {
-        if (prime && wide) {
-            document.getElementById('rWidePrimeMove').click();
-            document.getElementById('rWidePrimeMove').classList.add("button-active");
-        }
-        else if (wide && !prime) {
-            document.getElementById('rWideMove').click();
-            document.getElementById('rWideMove').classList.add("button-active");
-        }
-        else if (prime && !wide) {
-            document.getElementById('rPrimeMove').click();
-            document.getElementById('rPrimeMove').classList.add("button-active");
-        }
-        else {
-            document.getElementById('rMove').click();
-            document.getElementById('rMove').classList.add("button-active");
-        }
+        keyPressed(['rMove', 'rPrimeMove', 'rWideMove', 'rWidePrimeMove']);
     }
     else if (event.key == "l") {
-        if (prime && wide) {
-            document.getElementById('lWidePrimeMove').click();
-            document.getElementById('lWidePrimeMove').classList.add("button-active");
-        }
-        else if (wide && !prime) {
-            document.getElementById('lWideMove').click();
-            document.getElementById('lWideMove').classList.add("button-active");
-        }
-        else if (prime && !wide) {
-            document.getElementById('lPrimeMove').click();
-            document.getElementById('lPrimeMove').classList.add("button-active");
-        }
-        else {
-            document.getElementById('lMove').click();
-            document.getElementById('lMove').classList.add("button-active");
-        }
+        keyPressed(['lMove', 'lPrimeMove', 'lWideMove', 'lWidePrimeMove']);
     }
     else if (event.key == "f") {
-        if (prime && wide) {
-            document.getElementById('fWidePrimeMove').click();
-            document.getElementById('fWidePrimeMove').classList.add("button-active");
-        }
-        else if (wide && !prime) {
-            document.getElementById('fWideMove').click();
-            document.getElementById('fWideMove').classList.add("button-active");
-        }
-        else if (prime && !wide) {
-            document.getElementById('fPrimeMove').click();
-            document.getElementById('fPrimeMove').classList.add("button-active");
-        }
-        else {
-            document.getElementById('fMove').click();
-            document.getElementById('fMove').classList.add("button-active");
-        }
+        keyPressed(['fMove', 'fPrimeMove', 'fWideMove', 'fWidePrimeMove']);
     }
     else if (event.key == "b") {
-        if (prime && wide) {
-            document.getElementById('bWidePrimeMove').click();
-            document.getElementById('bWidePrimeMove').classList.add("button-active");
-        }
-        else if (wide && !prime) {
-            document.getElementById('bWideMove').click();
-            document.getElementById('bWideMove').classList.add("button-active");
-        }
-        else if (prime && !wide) {
-            document.getElementById('bPrimeMove').click();
-            document.getElementById('bPrimeMove').classList.add("button-active");
-        }
-        else {
-            document.getElementById('bMove').click();
-            document.getElementById('bMove').classList.add("button-active");
-        }
+        keyPressed(['bMove', 'bPrimeMove', 'bWideMove', 'bWidePrimeMove']);
     }
     else if (event.key == "m") {
-        if (prime) {
-            document.getElementById('mPrimeMove').click();
-            document.getElementById('mPrimeMove').classList.add("button-active");
-        }
-        else {
-            document.getElementById('mMove').click();
-            document.getElementById('mMove').classList.add("button-active");
-        }
+        keyPressed(['mMove', 'mPrimeMove', 'mMove', 'mPrimeMove']);
     }
     else if (event.key == "s") {
-        if (prime) {
-            document.getElementById('sPrimeMove').click();
-            document.getElementById('sPrimeMove').classList.add("button-active");
-        }
-        else {
-            document.getElementById('sMove').click();
-            document.getElementById('sMove').classList.add("button-active");
-        }
+        keyPressed(['sMove', 'sPrimeMove', 'sMove', 'sPrimeMove']);
     }
     else if (event.key == "e") {
-        if (prime) {
-            document.getElementById('ePrimeMove').click();
-            document.getElementById('ePrimeMove').classList.add("button-active");
-        }
-        else {
-            document.getElementById('eMove').click();
-            document.getElementById('eMove').classList.add("button-active");
-        }
+        keyPressed(['eMove', 'ePrimeMove', 'eMove', 'ePrimeMove']);
     }
     else if (event.key == "x") {
-        if (prime) {
-            document.getElementById('xPrimeMove').click();
-            document.getElementById('xPrimeMove').classList.add("button-active");
-        }
-        else {
-            document.getElementById('xMove').click();
-            document.getElementById('xMove').classList.add("button-active");
-        }
+        keyPressed(['xMove', 'xPrimeMove', 'xMove', 'xPrimeMove']);
     }
     else if (event.key == "y") {
-        if (prime) {
-            document.getElementById('yPrimeMove').click();
-            document.getElementById('yPrimeMove').classList.add("button-active");
-        }
-        else {
-            document.getElementById('yMove').click();
-            document.getElementById('yMove').classList.add("button-active");
-        }
+        keyPressed(['yMove', 'yPrimeMove', 'yMove', 'yPrimeMove']);
     }
     else if (event.key == "z") {
-        if (prime) {
-            document.getElementById('zPrimeMove').click();
-            document.getElementById('zPrimeMove').classList.add("button-active");
-        }
-        else {
-            document.getElementById('zMove').click();
-            document.getElementById('zMove').classList.add("button-active");
-        }
+        keyPressed(['zMove', 'zPrimeMove', 'zMove', 'zPrimeMove']);
     }
     else if (event.key === "'") {
         togglePrime();
@@ -570,143 +450,52 @@ window.addEventListener("keydown", function(event) {
     }
 });
 
+function releaseKey(moveIdList) {
+    for (id of moveIdList) {
+        if (document.getElementById(id).classList.contains("button-active")) {
+            document.getElementById(id).classList.toggle("button-active")
+        }
+    }
+}
 document.onkeyup = function(e) {
     if (e.key === "u") {
-        if (prime && wide) {
-            document.getElementById('uWidePrimeMove').classList.toggle("button-active");
-        }
-        else if (wide && !prime) {
-            document.getElementById('uWideMove').classList.toggle("button-active");
-        }
-        else if (prime && !wide) {
-            document.getElementById('uPrimeMove').classList.toggle("button-active");
-        }
-        else {
-            document.getElementById('uMove').classList.toggle("button-active");
-        }
+        releaseKey(['uMove', 'uPrimeMove', 'uWideMove', 'uWidePrimeMove'])
     }
     else if (e.key === "d") {
-        if (prime && wide) {
-            document.getElementById('dWidePrimeMove').classList.toggle("button-active");
-        }
-        else if (wide && !prime) {
-            document.getElementById('dWideMove').classList.toggle("button-active");
-        }
-        else if (prime && !wide) {
-            document.getElementById('dPrimeMove').classList.toggle("button-active");
-        }
-        else {
-            document.getElementById('dMove').classList.toggle("button-active");
-        }
+        releaseKey(['dMove', 'dPrimeMove', 'dWideMove', 'dWidePrimeMove'])
     }
     else if (e.key === "r") {
-        if (prime && wide) {
-            document.getElementById('rWidePrimeMove').classList.toggle("button-active");
-        }
-        else if (wide && !prime) {
-            document.getElementById('rWideMove').classList.toggle("button-active");
-        }
-        else if (prime && !wide) {
-            document.getElementById('rPrimeMove').classList.toggle("button-active");
-        }
-        else {
-            document.getElementById('rMove').classList.toggle("button-active");
-        }
+        releaseKey(['rMove', 'rPrimeMove', 'rWideMove', 'rWidePrimeMove'])
     }
     else if (e.key === "l") {
-        if (prime && wide) {
-            document.getElementById('lWidePrimeMove').classList.toggle("button-active");
-        }
-        else if (wide && !prime) {
-            document.getElementById('lWideMove').classList.toggle("button-active");
-        }
-        else if (prime && !wide) {
-            document.getElementById('lPrimeMove').classList.toggle("button-active");
-        }
-        else {
-            document.getElementById('lMove').classList.toggle("button-active");
-        }
+        releaseKey(['lMove', 'lPrimeMove', 'lWideMove', 'lWidePrimeMove'])
     }
     else if (e.key === "f") {
-        if (prime && wide) {
-            document.getElementById('fWidePrimeMove').classList.toggle("button-active");
-        }
-        else if (wide && !prime) {
-            document.getElementById('fWideMove').classList.toggle("button-active");
-        }
-        else if (prime && !wide) {
-            document.getElementById('fPrimeMove').classList.toggle("button-active");
-        }
-        else {
-            document.getElementById('fMove').classList.toggle("button-active");
-        }
+        releaseKey(['fMove', 'fPrimeMove', 'fWideMove', 'fWidePrimeMove'])
     }
     else if (e.key === "b") {
-        if (prime && wide) {
-            document.getElementById('bWidePrimeMove').classList.toggle("button-active");
-        }
-        else if (wide && !prime) {
-            document.getElementById('bWideMove').classList.toggle("button-active");
-        }
-        else if (prime && !wide) {
-            document.getElementById('bPrimeMove').classList.toggle("button-active");
-        }
-        else {
-            document.getElementById('bMove').classList.toggle("button-active");
-        }
+        releaseKey(['bMove', 'bPrimeMove', 'bWideMove', 'bWidePrimeMove'])
     }
     else if (e.key === "m") {
-        if (prime) {
-            document.getElementById('mPrimeMove').classList.toggle("button-active");
-        }
-        else {
-            document.getElementById('mMove').classList.toggle("button-active");
-        }
+        releaseKey(['mMove', 'mPrimeMove'])
     }
     else if (e.key === "s") {
-        if (prime) {
-            document.getElementById('sPrimeMove').classList.toggle("button-active");
-        }
-        else {
-            document.getElementById('sMove').classList.toggle("button-active");
-        }
+        releaseKey(['sMove', 'sPrimeMove'])
     }
     else if (e.key === "e") {
-        if (prime) {
-            document.getElementById('ePrimeMove').classList.toggle("button-active");
-        }
-        else {
-            document.getElementById('eMove').classList.toggle("button-active");
-        }
+        releaseKey(['eMove', 'ePrimeMove'])
     }
     else if (e.key === "x") {
-        if (prime) {
-            document.getElementById('xPrimeMove').classList.toggle("button-active");
-        }
-        else {
-            document.getElementById('xMove').classList.toggle("button-active");
-        }
+        releaseKey(['xMove', 'xPrimeMove'])
     }
     else if (e.key === "y") {
-        if (prime) {
-            document.getElementById('yPrimeMove').classList.toggle("button-active");
-        }
-        else {
-            document.getElementById('yMove').classList.toggle("button-active");
-        }
+        releaseKey(['yMove', 'yPrimeMove'])
     }
     else if (e.key === "z") {
-        if (prime) {
-            document.getElementById('zPrimeMove').classList.toggle("button-active");
-        }
-        else {
-            document.getElementById('zMove').classList.toggle("button-active");
-        }
+        releaseKey(['zMove', 'zPrimeMove'])
     }
-    else if (e.key == "q") {
-        if (document.getElementById('undo').classList.contains("button-active")) {
-            document.getElementById('undo').classList.toggle("button-active");
-        }
+    else if (e.key === "q") {
+        releaseKey(['undo'])
     }
 }
 
@@ -808,38 +597,26 @@ function scrambleCube() {
 }
 
 // CHECK IF CUBE IS SOLVED
+function checkFace(i, j) {
+    return (cubies[i][j] == cubies[i][j+1] && cubies[i][j] == cubies[i][j+2] &&
+        cubies[i][j] == cubies[i+1][j] && cubies[i][j] == cubies[i+1][j+1] &&
+        cubies[i][j] == cubies[1+1][j+2] && cubies[i][j] == cubies[i+2][j] &&
+        cubies[i][j] == cubies[i+2][j+1] && cubies[i][j] == cubies[i+2][j+2]);
+}
 function isFaceSolved(face) {
     switch(face) {
         case "top":
-            return (cubies[0][3] == cubies[0][4] && cubies[0][3] == cubies[0][5] &&
-                    cubies[0][3] == cubies[1][3] && cubies[0][3] == cubies[1][4] &&
-                    cubies[0][3] == cubies[1][5] && cubies[0][3] == cubies[2][3] &&
-                    cubies[0][3] == cubies[2][4] && cubies[0][3] == cubies[2][5]);
+            return (checkFace(0, 3));
         case "bottom":
-            return (cubies[6][3] == cubies[6][4] && cubies[6][3] == cubies[6][5] &&
-                    cubies[6][3] == cubies[7][3] && cubies[6][3] == cubies[7][4] &&
-                    cubies[6][3] == cubies[7][5] && cubies[6][3] == cubies[8][3] &&
-                    cubies[6][3] == cubies[8][4] && cubies[6][3] == cubies[8][5]);
+            return (checkFace(6, 3));
         case "right":
-            return (cubies[3][6] == cubies[3][7] && cubies[3][6] == cubies[3][8] &&
-                    cubies[3][6] == cubies[4][6] && cubies[3][6] == cubies[4][7] &&
-                    cubies[3][6] == cubies[4][8] && cubies[3][6] == cubies[5][6] &&
-                    cubies[3][6] == cubies[5][7] && cubies[3][6] == cubies[5][8]);
+            return (checkFace(3, 6));
         case "left":
-            return (cubies[3][0] == cubies[3][1] && cubies[3][0] == cubies[3][2] &&
-                    cubies[3][0] == cubies[4][0] && cubies[3][0] == cubies[4][1] &&
-                    cubies[3][0] == cubies[4][2] && cubies[3][0] == cubies[5][0] &&
-                    cubies[3][0] == cubies[5][1] && cubies[3][0] == cubies[5][2]);
+            return (checkFace(3, 0));
         case "front":
-            return (cubies[3][3] == cubies[3][4] && cubies[3][3] == cubies[3][5] &&
-                    cubies[3][3] == cubies[4][3] && cubies[3][3] == cubies[4][4] &&
-                    cubies[3][3] == cubies[4][5] && cubies[3][3] == cubies[5][3] &&
-                    cubies[3][3] == cubies[5][4] && cubies[3][3] == cubies[5][5]);
+            return (checkFace(3, 3));
         case "back":
-            return (cubies[3][9] == cubies[3][10] && cubies[3][9] == cubies[3][11] &&
-                    cubies[3][9] == cubies[4][9] && cubies[3][9] == cubies[4][10] &&
-                    cubies[3][9] == cubies[4][11] && cubies[3][9] == cubies[5][9] &&
-                    cubies[3][9] == cubies[5][10] && cubies[3][9] == cubies[5][11]);
+            return (checkFace(3, 9));
         default:
             return false;
     }
